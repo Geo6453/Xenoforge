@@ -1,1 +1,21 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>logos/XC1_DE_icon.png</file>
+        <file>logos/XC1_DE_logo.png</file>
+        <file>logos/XC1_FR_icon.png</file>
+        <file>logos/XC1_icon.png</file>
+        <file>logos/XC1_logo.png</file>
+        <file>logos/XC2_icon.png</file>
+        <file>logos/XC2_logo.png</file>
+        <file>logos/XC2_TTGC_icon.png</file>
+        <file>logos/XC3_FR_icon.png</file>
+        <file>logos/XC3_icon.png</file>
+        <file>logos/XC3_logo.png</file>
+        <file>logos/XCX_DE_icon.png</file>
+        <file>logos/XCX_DE_logo.png</file>
+        <file>logos/XCX_icon.png</file>
+        <file>logos/XCX_logo.png</file>
+        <file>logos/XC3_Music.jpg</file>
+        <file>logos/XC3_Map.jpg</file>
+    </qresource>
+</RCC>
