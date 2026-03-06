@@ -47,37 +47,37 @@ MainWindow::MainWindow(QWidget *parent)
         ClickableLabel *XC1_logo_home = new ClickableLabel(home);
             configureImageLabel(XC1_logo_home, ":/logos/XC1_logo.png");
             gridLayout->addWidget(XC1_logo_home, 1, 0);
-            connect(XC1_logo_home, &ClickableLabel::clicked, this, [this, stack]()
+            connect(XC1_logo_home, &ClickableLabel::clicked, this, [stack]()
                     {stack->setCurrentIndex(0);});
 
         ClickableLabel *XC1_DE_logo_home = new ClickableLabel(home);
             configureImageLabel(XC1_DE_logo_home, ":/logos/XC1_DE_logo.png");
             gridLayout->addWidget(XC1_DE_logo_home, 1, 1);
-            connect(XC1_DE_logo_home, &ClickableLabel::clicked, this, [this, stack]()
+            connect(XC1_DE_logo_home, &ClickableLabel::clicked, this, [stack]()
                 {stack->setCurrentIndex(0);});
 
         ClickableLabel *XCX_logo_home = new ClickableLabel(home);
             configureImageLabel(XCX_logo_home, ":/logos/XCX_logo.png");
             gridLayout->addWidget(XCX_logo_home, 2, 0);
-            connect(XCX_logo_home, &ClickableLabel::clicked, this, [this, stack]()
+            connect(XCX_logo_home, &ClickableLabel::clicked, this, [stack]()
                 {stack->setCurrentIndex(0);});
 
         ClickableLabel *XCX_DE_logo_home = new ClickableLabel(home);
             configureImageLabel(XCX_DE_logo_home, ":/logos/XCX_DE_logo.png");
             gridLayout->addWidget(XCX_DE_logo_home, 2, 1);
-            connect(XCX_DE_logo_home, &ClickableLabel::clicked, this, [this, stack]()
+            connect(XCX_DE_logo_home, &ClickableLabel::clicked, this, [stack]()
                 {stack->setCurrentIndex(0);});
 
         ClickableLabel *XC2_logo_home = new ClickableLabel(home);
             configureImageLabel(XC2_logo_home, ":/logos/XC2_logo.png");
             gridLayout->addWidget(XC2_logo_home, 3, 0);
-            connect(XC2_logo_home, &ClickableLabel::clicked, this, [this, stack]()
+            connect(XC2_logo_home, &ClickableLabel::clicked, this, [stack]()
                 {stack->setCurrentIndex(0);});
 
         ClickableLabel *XC3_logo_home = new ClickableLabel(home);
             configureImageLabel(XC3_logo_home, ":/logos/XC3_logo.png");
             gridLayout->addWidget(XC3_logo_home, 3, 1);
-            connect(XC3_logo_home, &ClickableLabel::clicked, this, [this, stack]()
+            connect(XC3_logo_home, &ClickableLabel::clicked, this, [stack]()
                 {stack->setCurrentIndex(1);});
 
     stack->addWidget(home);
@@ -87,16 +87,34 @@ MainWindow::MainWindow(QWidget *parent)
     test->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
         ClickableLabel *XC3_Map = new ClickableLabel(test);
-        configureImageLabel(XC3_Map, ":/logos/XC3_Map.jpg");
+        configureImageLabel(XC3_Map, ":/logos/Map.jpg");
         testGridLayout->addWidget(XC3_Map, 0, 0);
-        connect(XC3_Map, &ClickableLabel::clicked, this, [this, stack]()
+        connect(XC3_Map, &ClickableLabel::clicked, this, [stack]()
                 {stack->setCurrentIndex(0);});
 
         ClickableLabel *XC3_Music = new ClickableLabel(test);
-        configureImageLabel(XC3_Music, ":/logos/XC3_Music.jpg");
+        configureImageLabel(XC3_Music, ":/logos/Music.jpg");
         testGridLayout->addWidget(XC3_Music, 0, 1);
-        connect(XC3_Music, &ClickableLabel::clicked, this, [this, stack]()
-                {stack->setCurrentIndex(2);});
+        connect(XC3_Music, &ClickableLabel::clicked, this, [stack]()
+                {stack->setCurrentIndex(0);});
+
+        ClickableLabel *XC3_Object = new ClickableLabel(test);
+        configureImageLabel(XC3_Object, ":/logos/Object.jpg");
+        testGridLayout->addWidget(XC3_Object, 0, 2);
+        connect(XC3_Object, &ClickableLabel::clicked, this, [stack]()
+                {stack->setCurrentIndex(0);});
+
+        ClickableLabel *XC3_Character = new ClickableLabel(test);
+        configureImageLabel(XC3_Character, ":/logos/Character.jpg");
+        testGridLayout->addWidget(XC3_Character, 1, 0);
+        connect(XC3_Character, &ClickableLabel::clicked, this, [stack]()
+                {stack->setCurrentIndex(0);});
+
+        ClickableLabel *XC3_Monster = new ClickableLabel(test);
+        configureImageLabel(XC3_Monster, ":/logos/Monster.jpg");
+        testGridLayout->addWidget(XC3_Monster, 1, 1);
+        connect(XC3_Monster, &ClickableLabel::clicked, this, [stack]()
+                {stack->setCurrentIndex(0);});
 
     stack->addWidget(test);
 
@@ -140,11 +158,9 @@ MainWindow::MainWindow(QWidget *parent)
         avatarXC3GridLayout->addWidget(avatarPlaceHolder3, 0, 3);
         avatarPlaceHolder3->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
 
-
-
     stack->addWidget(avatarXC3);
 
-    stack->setCurrentIndex(3); //Index start with 0
+    stack->setCurrentIndex(0); //Index start with 0
     showMaximized();
 }
 

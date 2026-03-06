@@ -17,5 +17,10 @@
         <file>logos/XCX_logo.png</file>
         <file>logos/XC3_Music.jpg</file>
         <file>logos/XC3_Map.jpg</file>
+        <file>logos/Character.jpg</file>
+        <file>logos/Map.jpg</file>
+        <file>logos/Monster.jpg</file>
+        <file>logos/Music.jpg</file>
+        <file>logos/Object.jpg</file>
     </qresource>
 </RCC>

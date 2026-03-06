@@ -217,7 +217,6 @@ void SettingsDialog::addPathField(QGridLayout *layout, int row, const QString& l
 
     QPushButton *button = new QPushButton("...", this);
     button->setFixedWidth(30);
-
     connect(button, &QPushButton::clicked, this, [=]()
     {
         QString dir = QFileDialog::getExistingDirectory(this, "Select folder", QDir::homePath());
