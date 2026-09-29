@@ -160,7 +160,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     stack->addWidget(avatarXC3);
 
-    stack->setCurrentIndex(0); //Index start with 0
+    stack->setCurrentIndex(3); //Index start with 0
     showMaximized();
 }
 
