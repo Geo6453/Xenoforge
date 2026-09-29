@@ -3,6 +3,10 @@ import os
 import shutil
 import pathlib
 
+
+print(pandas.__version__)
+quit()
+
 CONFIGURATIONS = [
     # Configuration for "Main Six (Chx1)"
     {
