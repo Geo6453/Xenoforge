@@ -1,8 +1,8 @@
 # XenoForge
 
 ## FR
-C'est ambitieux mais l'objectif final est de créer un logiciel qui permette de modder ou au moins de simplifier le développement de mods
-L'application est en C++ avec le framework Qt, quelques scripts sont en Python
+C'est ambitieux mais l'objectif final est de créer un logiciel qui permette de modder ou au moins de simplifier le développement de mods.  
+L'application est en C++ avec le framework Qt, quelques scripts sont en Python.  
 
 ### Prérequis développement
 - Qt Creator 20.0.2
@@ -12,15 +12,15 @@ L'application est en C++ avec le framework Qt, quelques scripts sont en Python
 - Python v3.X
 
 ### Structure du projet
-Décrire les dossiers principaux.
-
+```text
 XenoForge : contient le readme et 2-3 scripts python
-├──XenoForge GUI : contient le code source du logiciel
-├──Assets
-|  └───Logos
-├──Dependancies : contiendra les autres sous-programmes  [À venir]
-   ├───XbTool
-   └───XbxDEtool
+├── XenoForge GUI/        # Contient le code source du logiciel
+├── Assets/
+│   └── Logos/
+└── Dependencies/          # Contiendra les autres sous-programmes [À venir]
+    ├── XbTool/
+    └── XbxDEtool/
+```
 
 ### Contributeurs
 Pour l'instant il n'y a que moi. Mais ceux qui ont participé indirectement seront mentionnés dans la section suivante.
