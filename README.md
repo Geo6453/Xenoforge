@@ -11,6 +11,20 @@ L'application est en C++ avec le framework Qt, quelques scripts sont en Python
 ### Prérequis installation
 - Python v3.X
 
+### Structure du projet
+Décrire les dossiers principaux.
+
+XenoForge : contient le readme et 2-3 scripts python
+├──XenoForge GUI : contient le code source du logiciel
+├──Assets
+|  └───Logos
+├──Dependancies : contiendra les autres sous-programmes  [À venir]
+   ├───XbTool
+   └───XbxDEtool
+
+### Contributeurs
+Pour l'instant il n'y a que moi. Mais ceux qui ont participé indirectement seront mentionnés dans la section suivante.
+
 ### Remerciements
 Je ne saurais remercier suffisamment les membres de WTR (World Tree Research) pour leur énorme travail sur le modding Xenoblade
 https://discord.gg/pmRmVfmVj2
