@@ -9,15 +9,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    centrallayout.cpp \
+    clickablelabel.cpp \
+    jsonmanager.cpp \
     main.cpp \
     mainwindow.cpp \
-    terminalwidget.cpp\
+    settingsdialog.cpp
 
 HEADERS += \
-    centrallayout.h \
+    clickablelabel.h \
+    jsonmanager.h \
     mainwindow.h \
-    terminalwidget.h
+    settingsdialog.h
 
 FORMS +=
 
@@ -36,3 +38,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+# Copy resources during post-build
+win32
+{
+    COPIES += resources
+    resources.files = $$files(../data/*)
+    resources.path = $$OUT_PWD/release/data
+    QMAKE_EXTRA_TARGETS += resources
+}
