@@ -1,6 +1,12 @@
 import os
-import shutil
 from pathlib import Path
+
+dll_dir = os.path.dirname(os.path.abspath(__file__))
+os.add_dll_directory(dll_dir) # pour le chargement de la DLL et ses dépendances
+os.environ['PATH'] = dll_dir + os.pathsep + os.environ['PATH'] # pour find_library()
+
+import opuslib.api.ctl as ctl
+import opuslib.api.decoder as decoder
 
 def checkFile(filePath):
     if not os.path.isfile(filePath):
@@ -31,45 +37,61 @@ def checkFile(filePath):
 
     return True
 
-def deleteFileHeader(filePath):
-    filePathOpen = filePath.open("r+b")
-    filePathOpen.seek(121)
-    save = filePathOpen.read()
-    filePathOpen.seek(0)
-    filePathOpen.write(save)
-    filePathOpen.truncate() # No need to precise the offset, the cursor is automatically set at the good spot after write()
-    filePathOpen.close
-
 def calculateFrameChecksum(frame):
-    print("")
+    varDecoder = decoder.create_state(48000, 2)
+    decoder.decode(varDecoder, frame, len(frame), 960, False)
+    frameChecksum = decoder.decoder_ctl(varDecoder, ctl.get_final_range)
+    frameChecksum = frameChecksum.to_bytes(4, byteorder="big")
+    # print(frameChecksum.hex())
+    return frameChecksum
 
 def deleteOpusPage(filePath):
     filePathOpen = filePath.open("r+b")
-    newFilePath = filePath.with_name(filePath.stem + " (test)" + filePath.suffix)
+    newFilePath = filePath.with_name(filePath.stem + " (converted)" + filePath.suffix)
     newFilePathOpen = newFilePath.open("w+b")
-    
-    pageExist = True
-    posCursor = 0
-    fileTemp = filePathOpen.read()
-    
-    endFile = filePathOpen.seek(0, 2) # se positionner à la fin (2 = SEEK_END)
-    taille = filePathOpen.tell()
-    print(taille)
 
-    while posCursor != taille:
+    endFile = filePathOpen.seek(0, 2) # se positionner à la fin (2 = SEEK_END)
+    posCursor = 121
+    frameNumberTotal = 0
+
+    while posCursor < endFile:
+        posCursor += 26
         filePathOpen.seek(posCursor)
-        check = filePathOpen.read(1)
-        if check != "FC":
-            filePathOpen.seek(posCursor + 137)
-        frame = filePathOpen.read(480)
-        print(posOggS - posCursor)
-        posCursor = posOggS
-        print(posCursor)
+        skipLength = int.from_bytes(filePathOpen.read(1))
+        print(skipLength)
+        frameNumberTotal += skipLength // 2
+        posCursor += skipLength + 1
+        filePathOpen.seek(posCursor)
+
+        frameNumberPage = skipLength // 2
+        for i in range(frameNumberPage):
+            frame = filePathOpen.read(480)
+            posCursor += 480
+            newFilePathOpen.write(bytes.fromhex('00 00 01 E0'))
+            newFilePathOpen.write(calculateFrameChecksum(frame))
+            newFilePathOpen.write(frame)
+    newFilePathOpen.close
+    return frameNumberTotal
 
 userInput = input("test : ")
 userInput = userInput.strip('"')
 filePath = Path(userInput)
 print(filePath)
 checkFile(filePath)
-deleteFileHeader(filePath)
-deleteOpusPage(filePath)
+
+frameNumber = deleteOpusPage(filePath) * 488
+frameNumber = int.to_bytes(frameNumber, 4, 'little')
+newFilePath = filePath.with_name(filePath.stem + " (converted)" + filePath.suffix)
+newFilePathOpen = newFilePath.open("r+b")
+save = newFilePathOpen.read
+newFilePathOpen.seek(0)
+newFilePathOpen.truncate()
+
+newFilePathOpen.write(bytes.fromhex('52 49 46 46')) # RIFF
+newFilePathOpen.write(bytes.fromhex('00 00 00 00')) # File size but it'll be set at the end
+newFilePathOpen.write(bytes.fromhex('57 41 56 45')) # WAVE
+newFilePathOpen.write(bytes.fromhex('66 6D 74 20')) # fmt
+newFilePathOpen.write(bytes.fromhex('28 00 00 00')) # 'fmt' chunk size
+newFilePathOpen.write(bytes.fromhex('39 30 02 00'))
+newFilePathOpen.write(bytes.fromhex('80 BB 00 00 00 EE 02 00 04 00 10 00 06 00 C0 03 02 31 00 00')) # File header
+newFilePathOpen.write(bytes.fromhex('80 A2 19 00 00 00 00 00 D8 09 0D 00 5C 1B 00 00')) # idk
