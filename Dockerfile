@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-RUN qmake6 XenoForge.pro
+RUN qmake6 XenoForge\XenoForge.pro
 RUN make -j$(nproc)
 
-CMD ["./XenoForge"]
+CMD ["XenoForge"]
