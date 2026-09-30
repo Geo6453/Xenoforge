@@ -34,4 +34,4 @@ jobs:
           file: XenoForge/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/xenoforge:${{ github.sha }}
+            ghcr.io/geo6453/xenoforge:${{ github.sha }}
