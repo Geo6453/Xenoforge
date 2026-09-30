@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: xenoforge/xenoforge
+    container_name: xenoforge
     environment:
       DISPLAY: ${DISPLAY}
       WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}
