@@ -10,9 +10,11 @@ RUN apt-get update && apt-get install -y \
     qt6-wayland \
     && rm -rf /var/lib/apt/lists/*
 
+WORKDIR /src
 COPY . .
 
-RUN qmake6 XenoForge.pro
-RUN make -j$(nproc)
+WORKDIR /build
+RUN qmake6 /src/XenoForge/XenoForge.pro
+RUN make
 
-CMD ["XenoForge"]
+CMD ["/build/XenoForge"]

@@ -82,41 +82,41 @@ MainWindow::MainWindow(QWidget *parent)
 
     stack->addWidget(home);
 
-    QWidget *test = new QWidget();
-    QGridLayout *testGridLayout = new QGridLayout(test);
-    test->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    // QWidget *test = new QWidget();
+    // QGridLayout *testGridLayout = new QGridLayout(test);
+    // test->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-        ClickableLabel *XC3_Map = new ClickableLabel(test);
-        configureImageLabel(XC3_Map, ":/logos/Map.jpg");
-        testGridLayout->addWidget(XC3_Map, 0, 0);
-        connect(XC3_Map, &ClickableLabel::clicked, this, [stack]()
-                {stack->setCurrentIndex(0);});
+        // ClickableLabel *XC3_Map = new ClickableLabel(test);
+        // configureImageLabel(XC3_Map, ":/logos/Map.jpg");
+        // testGridLayout->addWidget(XC3_Map, 0, 0);
+        // connect(XC3_Map, &ClickableLabel::clicked, this, [stack]()
+        //         {stack->setCurrentIndex(0);});
 
-        ClickableLabel *XC3_Music = new ClickableLabel(test);
-        configureImageLabel(XC3_Music, ":/logos/Music.jpg");
-        testGridLayout->addWidget(XC3_Music, 0, 1);
-        connect(XC3_Music, &ClickableLabel::clicked, this, [stack]()
-                {stack->setCurrentIndex(0);});
+        // ClickableLabel *XC3_Music = new ClickableLabel(test);
+        // configureImageLabel(XC3_Music, ":/logos/Music.jpg");
+        // testGridLayout->addWidget(XC3_Music, 0, 1);
+        // connect(XC3_Music, &ClickableLabel::clicked, this, [stack]()
+        //         {stack->setCurrentIndex(0);});
 
-        ClickableLabel *XC3_Object = new ClickableLabel(test);
-        configureImageLabel(XC3_Object, ":/logos/Object.jpg");
-        testGridLayout->addWidget(XC3_Object, 0, 2);
-        connect(XC3_Object, &ClickableLabel::clicked, this, [stack]()
-                {stack->setCurrentIndex(0);});
+        // ClickableLabel *XC3_Object = new ClickableLabel(test);
+        // configureImageLabel(XC3_Object, ":/logos/Object.jpg");
+        // testGridLayout->addWidget(XC3_Object, 0, 2);
+        // connect(XC3_Object, &ClickableLabel::clicked, this, [stack]()
+        //         {stack->setCurrentIndex(0);});
 
-        ClickableLabel *XC3_Character = new ClickableLabel(test);
-        configureImageLabel(XC3_Character, ":/logos/Character.jpg");
-        testGridLayout->addWidget(XC3_Character, 1, 0);
-        connect(XC3_Character, &ClickableLabel::clicked, this, [stack]()
-                {stack->setCurrentIndex(0);});
+        // ClickableLabel *XC3_Character = new ClickableLabel(test);
+        // configureImageLabel(XC3_Character, ":/logos/Character.jpg");
+        // testGridLayout->addWidget(XC3_Character, 1, 0);
+        // connect(XC3_Character, &ClickableLabel::clicked, this, [stack]()
+        //         {stack->setCurrentIndex(0);});
 
-        ClickableLabel *XC3_Monster = new ClickableLabel(test);
-        configureImageLabel(XC3_Monster, ":/logos/Monster.jpg");
-        testGridLayout->addWidget(XC3_Monster, 1, 1);
-        connect(XC3_Monster, &ClickableLabel::clicked, this, [stack]()
-                {stack->setCurrentIndex(0);});
+        // ClickableLabel *XC3_Monster = new ClickableLabel(test);
+        // configureImageLabel(XC3_Monster, ":/logos/Monster.jpg");
+        // testGridLayout->addWidget(XC3_Monster, 1, 1);
+        // connect(XC3_Monster, &ClickableLabel::clicked, this, [stack]()
+        //         {stack->setCurrentIndex(0);});
 
-    stack->addWidget(test);
+    // stack->addWidget(test);
 
 // Répliquer la structure d'une page puis la personnaliser au lieu d'en faire manuellement à 100%
     //Exemple : les "6" jeux auront tous une page de gestion des OST
@@ -160,7 +160,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     stack->addWidget(avatarXC3);
 
-    stack->setCurrentIndex(3); //Index start with 0
+    stack->setCurrentIndex(1); //Index start with 0
     showMaximized();
 }
 
