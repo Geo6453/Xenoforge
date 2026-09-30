@@ -15,4 +15,4 @@ COPY . .
 RUN qmake6 XenoForge.pro
 RUN make -j$(nproc)
 
-CMD ["XenoForge"]
+CMD ["./XenoForge"]
