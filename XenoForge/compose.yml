@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: xenoforge
+    environment:
+      DISPLAY: ${DISPLAY}
+      WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}
+      XDG_RUNTIME_DIR: /tmp/runtime
+      QT_QPA_PLATFORM: wayland
+    volumes:
+      - /mnt/wslg:/mnt/wslg
+      - /mnt/wslg/runtime-dir:/tmp/runtime
