@@ -30,8 +30,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
-          context: XenoForge
-          file: XenoForge/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: true
           tags: |
             ghcr.io/geo6453/xenoforge:${{ github.sha }}
