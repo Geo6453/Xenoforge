@@ -6,6 +6,12 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Load ffmpeg.exe
 ffmpegLocation = os.path.join(script_dir, "..", "Dependencies", "ffmpeg.exe")
+if os.path.exists(ffmpegLocation):
+    print("")
+else:
+    print("Download ffmpeg from the official website 'https://ffmpeg.org/download.html'")
+    print("And place the executable ffmpeg.exe in this directory : '", os.path.join(script_dir, "..", "Dependencies"))
+    quit()
 
 # Load Opus.dll
 dll_dir = os.path.join(script_dir, "..", "Dependencies")
