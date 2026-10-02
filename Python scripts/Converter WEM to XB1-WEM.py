@@ -10,7 +10,8 @@ if os.path.exists(ffmpegLocation):
     print("")
 else:
     print("Download ffmpeg from the official website 'https://ffmpeg.org/download.html'")
-    print("And place the executable ffmpeg.exe in this directory : '", os.path.join(script_dir, "..", "Dependencies"))
+    print("And place the executable ffmpeg.exe in this directory : ", os.path.join(script_dir, "..", "Dependencies"))
+    input("")
     quit()
 
 # Load Opus.dll
